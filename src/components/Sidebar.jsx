@@ -21,7 +21,7 @@ function Sidebar({ handleView, currView }) {
   ];
 
   return (
-    <div className="w-60 rounded-lg flex flex-row md:flex-col md:gap-8 lg:bg-cover bg-contain bg-center bg-[url('/assets/images/bg-sidebar-mobile.svg')] lg:bg-[url('/assets/images/bg-sidebar-desktop.svg')] px-8 py-12">
+    <div className="w-96 h-auto rounded-lg flex flex-row md:flex-col md:gap-8 lg:bg-cover bg-contain bg-center bg-[url('/assets/images/bg-sidebar-mobile.svg')] lg:bg-[url('/assets/images/bg-sidebar-desktop.svg')] px-8 py-12">
       {SideInfo.map((side) => (
         <Number
           num={side.num}

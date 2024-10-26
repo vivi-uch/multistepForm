@@ -1,3 +1,5 @@
+import Header from "../Header";
+
 function Personal() {
   const personalInfo = [
     {
@@ -13,14 +15,13 @@ function Personal() {
       placeholder: "e.g. +1 234 567 890",
     },
   ];
+
   return (
-    <div className="flex flex-col gap-7 mx-20 my-9">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-marineBlue text-4xl font-bold">Personal Info</h1>
-        <p className="text-coolGray">
-          Please provide your name, email address, and phone number.
-        </p>
-      </div>
+    <div className="flex flex-col gap-7 px-20 my-9 w-full">
+      <Header
+        info="Please provide your name, email address, and phone number."
+        heading="Personal Info"
+      />
       <form className="flex flex-col gap-4">
         {personalInfo.map((info) => (
           <LabelInputs
@@ -30,7 +31,7 @@ function Personal() {
           />
         ))}
       </form>
-      <div className="flex justify-end">
+      <div className="flex justify-end mt-9">
         <button className="bg-marineBlue rounded px-6 py-2 text-magnolia">
           Next Step
         </button>
