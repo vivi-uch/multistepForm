@@ -1,6 +1,7 @@
+import { useState } from "react";
 import Header from "../Header";
 
-function AddOns({ isMonth }) {
+function AddOns({ isMonth, handleNext, handleBack }) {
   const checkData = [
     {
       heading: "Online service",
@@ -21,8 +22,9 @@ function AddOns({ isMonth }) {
       monthly: 2,
     },
   ];
+
   return (
-    <div className="flex flex-col gap-4 px-20 my-9 w-full">
+    <div className="flex flex-col gap-6 px-20 my-9 w-full">
       <Header
         heading="Pick add-ons"
         info="Add-ons help enhance your gaming experience."
@@ -39,9 +41,14 @@ function AddOns({ isMonth }) {
         />
       ))}
       <div className="flex justify-between items-baseline">
-        <a className="text-coolGray">Go back</a>
+        <a className="text-coolGray cursor-pointer" onClick={handleBack}>
+          Go back
+        </a>
         <div className="flex justify-end mt-9 items-center">
-          <button className="bg-marineBlue rounded px-6 py-2 text-magnolia">
+          <button
+            className="bg-marineBlue rounded px-6 py-2 text-magnolia"
+            onClick={handleNext}
+          >
             Next Step
           </button>
         </div>
@@ -53,10 +60,23 @@ function AddOns({ isMonth }) {
 export default AddOns;
 
 function CheckCard({ heading, para, isMonth, monthly, yearly }) {
+  const [isChecked, setIsChecked] = useState(false);
+  function handleCheckbox() {
+    setIsChecked(!isChecked);
+  }
   return (
-    <div className="flex p-4 border border-coolGray rounded-md justify-between items-center">
+    <div
+      className={`flex p-4 border border-coolGray rounded-md justify-between items-center ${
+        isChecked ? "border-purplishBlue bg-magnolia border-[1.5px]" : ""
+      }`}
+    >
       <div className="flex gap-5">
-        <input type="checkbox" className="" />
+        <input
+          type="checkbox"
+          className="w-4"
+          checked={isChecked}
+          onChange={handleCheckbox}
+        />
         <div className="flex flex-col text-sm">
           <p className="font-bold text-marineBlue">{heading}</p>
           <p className="text-coolGray font-semibold">{para}</p>

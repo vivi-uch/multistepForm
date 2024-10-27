@@ -1,6 +1,13 @@
 import Header from "../Header";
 
-function Plan({ selected, handleSelected, isMonth, handleClick }) {
+function Plan({
+  selected,
+  handleSelected,
+  isMonth,
+  handleClick,
+  handleNext,
+  handleBack,
+}) {
   const cardData = [
     {
       valueM: 9,
@@ -62,9 +69,14 @@ function Plan({ selected, handleSelected, isMonth, handleClick }) {
         <p>Yearly</p>
       </div>
       <div className="flex justify-between items-baseline">
-        <a className="text-coolGray">Go back</a>
+        <a className="text-coolGray cursor-pointer" onClick={handleBack}>
+          Go back
+        </a>
         <div className="flex justify-end mt-9 items-center">
-          <button className="bg-marineBlue rounded px-6 py-2 text-magnolia">
+          <button
+            className="bg-marineBlue rounded px-6 py-2 text-magnolia"
+            onClick={handleNext}
+          >
             Next Step
           </button>
         </div>
