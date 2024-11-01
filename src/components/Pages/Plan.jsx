@@ -1,3 +1,4 @@
+import Button from "../Button";
 import Header from "../Header";
 
 function Plan({
@@ -7,6 +8,7 @@ function Plan({
   handleClick,
   handleNext,
   handleBack,
+  currView,
 }) {
   const cardData = [
     {
@@ -50,7 +52,6 @@ function Plan({
             valueM={card.valueM}
             num={card.num}
             selected={selected}
-            value={card.value}
           />
         ))}
       </div>
@@ -68,19 +69,11 @@ function Plan({
         </div>
         <p>Yearly</p>
       </div>
-      <div className="flex justify-between items-baseline">
-        <a className="text-coolGray cursor-pointer" onClick={handleBack}>
-          Go back
-        </a>
-        <div className="flex justify-end mt-9 items-center">
-          <button
-            className="bg-marineBlue rounded px-6 py-2 text-magnolia"
-            onClick={handleNext}
-          >
-            Next Step
-          </button>
-        </div>
-      </div>
+      <Button
+        handleBack={handleBack}
+        currView={currView}
+        handleNext={handleNext}
+      />
     </div>
   );
 }
@@ -118,3 +111,5 @@ function Card({
   );
 }
 export default Plan;
+
+//context in react

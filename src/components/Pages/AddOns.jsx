@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Header from "../Header";
+import Button from "../Button";
 
-function AddOns({ isMonth, handleNext, handleBack }) {
+function AddOns({ isMonth, handleNext, handleBack, currView }) {
   const checkData = [
     {
       heading: "Online service",
@@ -40,19 +41,11 @@ function AddOns({ isMonth, handleNext, handleBack }) {
           isMonth={isMonth}
         />
       ))}
-      <div className="flex justify-between items-baseline">
-        <a className="text-coolGray cursor-pointer" onClick={handleBack}>
-          Go back
-        </a>
-        <div className="flex justify-end mt-9 items-center">
-          <button
-            className="bg-marineBlue rounded px-6 py-2 text-magnolia"
-            onClick={handleNext}
-          >
-            Next Step
-          </button>
-        </div>
-      </div>
+      <Button
+        handleBack={handleBack}
+        currView={currView}
+        handleNext={handleNext}
+      />
     </div>
   );
 }

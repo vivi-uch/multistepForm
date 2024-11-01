@@ -4,6 +4,7 @@ import Plan from "./components/Pages/Plan";
 import Sidebar from "./components/sidebar";
 import Summary from "./components/Pages/Summary";
 import { useState } from "react";
+import Submit from "./components/Pages/Submit";
 
 function App() {
   const [currView, setCurrentView] = useState(1);
@@ -39,7 +40,9 @@ function App() {
     <div className="flex justify-center items-center h-screen">
       <div className="p-4 flex flex-col md:flex-row rounded-xl shadow-lg bg-white w-[900px]">
         <Sidebar handleView={handleView} currView={currView} />
-        {currView === 1 && <Personal handleNext={handleNext} />}
+        {currView === 1 && (
+          <Personal handleNext={handleNext} currView={currView} />
+        )}
         {currView === 2 && (
           <Plan
             isMonth={isMonth}
@@ -48,6 +51,7 @@ function App() {
             selected={selected}
             handleNext={handleNext}
             handleBack={handleBack}
+            currView={currView}
           />
         )}
         {currView === 3 && (
@@ -57,12 +61,18 @@ function App() {
             handleCheckbox={handleCheckbox}
             handleNext={handleNext}
             handleBack={handleBack}
+            currView={currView}
           />
         )}
         {currView === 4 && (
-          <Summary handleNext={handleNext} handleBack={handleBack} />
+          <Summary
+            handleNext={handleNext}
+            handleBack={handleBack}
+            selected={selected}
+            currView={currView}
+          />
         )}
-        {currView === 5 && "Submit"}
+        {currView === 5 && <Submit />}
       </div>
     </div>
   );

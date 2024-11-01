@@ -1,6 +1,7 @@
 import Header from "../Header";
+import Button from "../Button";
 
-function Personal({ handleNext }) {
+function Personal({ handleNext, handleBack, currView }) {
   const personalInfo = [
     {
       name: "Name",
@@ -31,14 +32,11 @@ function Personal({ handleNext }) {
           />
         ))}
       </form>
-      <div className="flex justify-end mt-9">
-        <button
-          className="bg-marineBlue rounded px-6 py-2 text-magnolia"
-          onClick={handleNext}
-        >
-          Next Step
-        </button>
-      </div>
+      <Button
+        handleBack={handleBack}
+        currView={currView}
+        handleNext={handleNext}
+      />
     </div>
   );
 }
